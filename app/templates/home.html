@@ -1,0 +1,40 @@
+{% block body %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}" />
+
+<body>
+  <div class="top-bar">
+    <input type="text" placeholder="Cerca..." />
+    <button>Crear</button>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn">Google - John Doe</button>
+    <div class="accordion-panel">
+      <div class="additional-info">
+        <div class="box">
+          <p>Información adicional: Google es una de las mayores empresas tecnológicas del mundo, especializada en servicios en línea y software. John Doe es un miembro del equipo de desarrollo de Google.</p>
+        </div>
+        <div class="box">
+          <p>Misión: Organizar la información del mundo y hacerla universalmente accesible y útil.</p>
+        </div>
+        <div class="box">
+          <p>Visión: Brindar la mejor experiencia de usuario y convertirse en un recurso indispensable para las personas en todo el mundo.</p>
+        </div>
+        <div class="box">
+          <p>Operaciones: Desarrollo y mantenimiento de motores de búsqueda, sistemas operativos, plataformas en la nube, servicios publicitarios y mucho más.</p>
+        </div>
+        <div class="button-container">
+          <button class="action-button ver-button">Ver</button>
+          <button class="action-button editar-button">Editar</button>
+          <button class="action-button eliminar-button">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+{% endblock %}
