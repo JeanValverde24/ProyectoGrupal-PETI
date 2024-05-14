@@ -35,6 +35,12 @@ def registrarse():
     }
     return render_template('register.html',data=data)
 
+@app.route('/home')
+def home():
+    return render_template('inicio.html')
+
+
+
 
 
 @app.route('/contacto/<nombre>/<int:edad>')
