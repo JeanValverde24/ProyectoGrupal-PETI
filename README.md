@@ -4,6 +4,13 @@
 
 #Jose Luis Jarro C.
 
+#Imagen del diagrama (phyton y mysql)
+
+```
+
+![image](https://github.com/JeanValverde24/ProyectoGrupal-PETI/assets/90207645/e3363378-733a-48dd-9e5d-31dd6549c91b)
+
+```
 
 ```
 msql
