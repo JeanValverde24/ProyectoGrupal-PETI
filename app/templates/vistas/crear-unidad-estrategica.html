@@ -1,0 +1,64 @@
+{% extends './base.html' %} 
+{% block title %}Plan Estrategico{% endblock %}
+
+{%block body %} 
+
+{% include './vistas/menu.html' %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/crear-unidad-estrategica.css')}}"
+/>
+
+<div class="contenido">
+  <div class="ancho">
+    <h3>Comente en este apartado las distintas UEN que tiene su empresa:</h3>
+    <textarea id="comentarios" name="comentarios" rows="5" cols="50"></textarea>
+
+    <h3>
+      A continuación reflexione sobre la misión, visión y valores definidos y
+      establezca los objetivos estratégicos y específicos de su empresa. Le
+      proponemos que comience con definir 3 objetivos estratégicos y dos
+      especificos para cada uno de ellos
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Mision</th>
+          <th>Objetivos Generales o Estrategicos</th>
+          <th>Objetivos Específicos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="6">La mision</td>
+          <td rowspan="3"><textarea rows="3" cols="30"></textarea></td>
+          <td><textarea rows="1" cols="30"></textarea></td>
+        </tr>
+        <tr>
+          <td><textarea rows="1" cols="30"></textarea></td>
+        </tr>
+        <tr>
+          <td><textarea rows="1" cols="30"></textarea></td>
+        </tr>
+        <tr>
+          <td rowspan="3"><textarea rows="3" cols="30"></textarea></td>
+          <td><textarea rows="1" cols="30"></textarea></td>
+        </tr>
+        <tr>
+          <td><textarea rows="1" cols="30"></textarea></td>
+        </tr>
+        <tr>
+          <td><textarea rows="1" cols="30"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="botones">
+      <a href=""
+        ><button type="submit">Guardar y Continuar</button></a
+      >
+      <a href="{{ url_for('crearplan') }}"><button>Atras</button></a>
+    </div>
+  </div>
+</div>
+{% endblock %}

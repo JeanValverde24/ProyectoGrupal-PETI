@@ -52,9 +52,13 @@ def ajustes():
     return render_template('vistas/body/ajustes.html')
 
 
-@app.route('/crearplan')
+@app.route('/crear-plan')
 def crearplan():
     return render_template('vistas/crear-plan.html')
+
+@app.route('/crear-unidad-estrategica')
+def crearunidadestrategica():
+    return render_template('vistas/crear-unidad-estrategica.html')
 
 
 
