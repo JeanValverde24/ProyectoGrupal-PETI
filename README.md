@@ -24,6 +24,9 @@ Within the activated environment, use the following command to install Flask:
 > $ pip install Flask
 
 
+Ejutar
+
+> python .\app\app.py
 # Referencia
 
 https://www.youtube.com/watch?v=-1DmVCPB6H8
