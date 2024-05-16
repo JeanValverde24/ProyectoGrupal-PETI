@@ -21,7 +21,7 @@ def index():
         'Correo':'Correo electronico',
         'Password':'Contraseña'
     }
-    return render_template('index.html', data=data)
+    return render_template('login/index.html', data=data)
 
 @app.route('/registrarse')
 def registrarse():
@@ -33,12 +33,28 @@ def registrarse():
         'Password':'Contraseña',
         'PasswordRepeat':'Repite la Contraseña'
     }
-    return render_template('register.html',data=data)
+    return render_template('login/register.html',data=data)
 
-@app.route('/home')
-def home():
-    return render_template('inicio.html')
+@app.route('/inicio')
+def inicio():
+    return render_template('vistas/body/inicio.html')
 
+@app.route('/csv')
+def subir_csv():
+    return render_template('vistas/body/subir-csv.html')
+
+@app.route('/exportar')
+def exportar():
+    return render_template('vistas/body/exportar.html')
+
+@app.route('/ajustes')
+def ajustes():
+    return render_template('vistas/body/ajustes.html')
+
+
+@app.route('/crearplan')
+def crearplan():
+    return render_template('vistas/crear-plan.html')
 
 
 
@@ -63,6 +79,10 @@ def query_string():
 def pagina_no_encontrada(error):
     # return render_template('404.html'), 404
     return redirect(url_for('index'))
+
+
+
+
 
 if __name__ == '__main__':
     app.add_url_rule('/query_string', view_func=query_string)
