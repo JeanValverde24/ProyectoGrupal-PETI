@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Plan Estratégico (Análisis de Cadena de Valor)</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 20px;
+       }
+
+       .container {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+       }
+
+       .header {
+           background-color: #0077b6;
+           color: #fff;
+           padding: 10px;
+           text-align: center;
+           width: 100%;
+       }
+
+       .content {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-around;
+           margin-top: 20px;
+       }
+
+       .grid {
+           border: 1px solid #ccc;
+           padding: 10px;
+       }
+
+       .grid table {
+           border-collapse: collapse;
+           width: 100%;
+       }
+
+       .grid th, .grid td {
+           border: 1px solid #ccc;
+           padding: 5px;
+           text-align: left;
+           cursor: pointer;
+       }
+
+       .grid th {
+           background-color: #f2f2f2;
+       }
+
+       .form-group {
+           margin-bottom: 10px;
+       }
+
+       .form-group label {
+           display: block;
+           font-weight: bold;
+           margin-bottom: 5px;
+       }
+
+       .form-group input {
+           padding: 5px;
+           width: 100%;
+       }
+
+       .buttons {
+           display: flex;
+           justify-content: space-between;
+           margin-top: 20px;
+       }
+
+       .buttons button {
+           background-color: #0077b6;
+           border: none;
+           color: #fff;
+           cursor: pointer;
+           padding: 10px 20px;
+       }
+
+       .buttons button:hover {
+           background-color: #005b8d;
+       }
+
+       .sidebar {
+           background-color: #f2f2f2;
+           padding: 20px;
+           text-align: center;
+       }
+   </style>
+</head>
+<body>
+   <div class="container">
+       <div class="header">
+           <h2>Este es la continuación de la segunda página al crear un nuevo Plan Estratégico (Análisis de Cadena de Valor)</h2>
+       </div>
+       <div class="content">
+           <div class="grid">
+               <h3>Crear la grilla del autodiagnóstico</h3>
+               <table id="gridTable">
+                   <tr>
+                       <th></th>
+                       <th>0</th>
+                       <th>1</th>
+                       <th>2</th>
+                       <th>3</th>
+                       <th>4</th>
+                   </tr>
+                   <tr>
+                       <td>A. La empresa no tiene deficiencia alguna de los defectos en la producción de productos/servicios.</td>
+                       <td class="cell" onclick="toggleCell(this)">x</td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                       <td class="cell" onclick="toggleCell(this)">x</td>
+                   </tr>
+                   <tr>
+                       <td>B. La empresa omiteis los medios productivos tecno;igi-cicamente</td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                       <td class="cell" onclick="toggleCell(this)">x</td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                       <td class="cell" onclick="toggleCell(this)"></td>
+                   </tr>
+                   <tr>
+                    <td>D. La evalucion y disprse de los sistemas de informacion y control de gestion defintida y efixar</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>E. Los merdes ticcnicos y tecnologicas de la empresa estat implantados pars competir en un futuro a certo. medio y largo</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>F. La empresa no tiene nirgun problema de organicacion</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>G. La empresa es un referente en su sector en I+D+I.</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>H. La acscestanda de los procedimientos de la empresa (en ISO, etc.) tres leva una gristoal frente de verdaja competitiva</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>I. La empresa dispene de pginas weh, y esto se emplea de esta herra-mienta para aderen relationes con clientes y proveedores,</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>J. Exite una politica de promcciori exteror coherente</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>K.Los producto/serncios que desarrolia nuestra empresa fueron importante una teconologia dificil de imitar</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>L. La empresa es referente en su sector en la optimizacion, en terminos de coste, de su cadena de produredon.</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>M. La inforrnatiacion de la empresa es una fuente de ventaja compctitiva con respeecto a sus comptidores</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                <tr>
+                    <td>N. Los canales de distrivuion de ia empresa son una correcnte logistica a nuestros compctidores: son agistimcs; y difercnciaimnerite valorados por el cliente respecto a ruestras</td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)"></td>
+                    <td class="cell" onclick="toggleCell(this)">x</td>
+                </tr>
+                   <!-- Aquí van las demás filas -->
+               </table>
+           </div>
+       </div>
+   </div>
+   <div class="container">
+    <div class="form-group">
+        <label for="fortalezas">FORTALEZAS</label>
+        <div id="fortalezas">
+            <input type="text" placeholder="F1:">
+            <input type="text" placeholder="F2:">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="debilidades">DEBILIDADES</label>
+        <div id="debilidades">
+            <input type="text" placeholder="D1:">
+            <input type="text" placeholder="D2:">
+        </div>
+    </div>
+    <div class="buttons">
+        <button>Boton(Guardar y continuar)</button>
+        <button>CANCELAR</button>
+    </div>
+</div>
+   <script>
+       function toggleCell(cell) {
+           if (cell.innerHTML == "x") {
+               cell.innerHTML = "x";
+           } else {
+               cell.innerHTML = "x";
+           }
+       }
+   </script>
+</body>
+</html>
