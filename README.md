@@ -120,7 +120,7 @@ CREATE TABLE `Usuario` (
   `Apellidos` varchar(150) NOT NULL,
   `Correo` varchar(250) NOT NULL,
   `Celular` varchar(9) NOT NULL,
-  `Contraseña` varchar(257) NOT NULL,
+  `Contrasenia` varchar(257) NOT NULL,
   PRIMARY KEY (`IdUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
