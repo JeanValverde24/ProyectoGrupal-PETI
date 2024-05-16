@@ -1,0 +1,73 @@
+.contenido {
+  margin-left: 200px;
+}
+
+.ancho {
+  max-width: calc(100%);
+  display: flex;
+}
+
+.formulario {
+  width: 100%; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.formulario h2 {
+  margin-top: 0;
+}
+
+.general,.valores{
+    width: 50%;
+}
+.container-form{
+    display: flex;
+}
+
+.general label,
+.valores label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.general input,
+.general textarea,
+.valores input {
+  width: 90%; 
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.valores {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.valores div {
+  width: calc(50% - 10px); 
+}
+
+.valores input {
+  width: 100%; 
+}
+
+.botones {
+  margin-top: 20px;
+}
+
+.botones button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botones button:hover {
+  background-color: #0056b3;
+}

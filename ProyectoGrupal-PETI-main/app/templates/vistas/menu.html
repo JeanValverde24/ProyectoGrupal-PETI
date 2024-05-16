@@ -1,0 +1,19 @@
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css')}}">
+
+<div class="menu">
+  <div class="perfil">
+    <img src="ruta/a/la/foto-del-usuario.jpg" alt="Foto de Perfil" />
+    <span>Nombre de Usuario</span>
+  </div>
+  <ul>
+    <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+    <li><a href="{{ url_for('subir_csv') }}">Subir CSV</a></li>
+
+    <li><a href="{{ url_for('exportar') }}">Exportar</a></li>
+    <li><a href="{{ url_for('ajustes') }}">Ajustes</a></li>
+
+    <li><a href="{{ url_for('index') }}">Cerrar sesion</a></li>
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends './base.html' %} {% block title %}Plan Estrategico{% endblock %} {% block body
+%} {% include './vistas/menu.html' %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/crear-plan.css')}}"
+/>
+
+<div class="contenido">
+  <div class="ancho">
+    <div class="formulario">
+      <h2>Crear Plan Estrategico</h2>
+      <form action="" /*method="POST"*/>
+        <div class="container-form">
+          <div class="general">
+            <label for="nombre_empresa">Nombre de la Empresa:</label>
+            <input
+              type="text"
+              id="nombre_empresa"
+              name="nombre_empresa"
+              required
+            />
+            <label for="mision">Misión:</label>
+            <textarea
+              id="mision"
+              name="mision"
+              rows="4"
+              required
+              style="width: 90%"
+            ></textarea>
+            <label for="vision">Visión:</label>
+            <textarea
+              id="vision"
+              name="vision"
+              rows="4"
+              required
+              style="width: 90%"
+            ></textarea>
+          </div>
+          <div class="valores">
+            <div>
+              <label for="valores1">Valor 1:</label>
+              <input type="text" id="valores1" name="valores1" required />
+              <label for="valores2">Valor 2:</label>
+              <input type="text" id="valores2" name="valores2" required />
+              <label for="valores3">Valor 3:</label>
+              <input type="text" id="valores3" name="valores3" required />
+            </div>
+            <div>
+              <label for="valores4">Valor 4:</label>
+              <input type="text" id="valores4" name="valores4" required />
+              <label for="valores5">Valor 5:</label>
+              <input type="text" id="valores5" name="valores5" required />
+              <label for="valores6">Valor 6:</label>
+              <input type="text" id="valores6" name="valores6" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="botones">
+          <a href="{{ url_for('crearunidadestrategica') }}"><button type="submit">Guardar y Continuar</button></a>
+          <button type="button" onclick="cancelar()">Cancelar</button>
+
+          
+        </div>
+      </form>
+    </div>
+    <a href="{{ url_for('crearunidadestrategica') }}" style="position: absolute;"><button>Siguiente</button></a>
+  </div>
+
+  <script>
+    function cancelar() {
+      window.location.href = "{{ url_for('inicio') }}";
+    }
+  </script>
+
+  {% endblock %}
+</div>
