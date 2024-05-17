@@ -2,10 +2,10 @@
 
 | Nombres                        | Apellidos               | Código     |
 |-------------------------------|-------------------------|------------|
-| Jean Pier Elias Valverde Zamora |                         | 2020066920 |
-| Anthony Alexander Cano Sucso    |                         | 2020067573 |
-| Jose Luis Jarro Cachi           |                         | 2020067148 |
-| Josue Abraham Chambilla Zuñiga |                         | 2020067575 |
+| Jean Pier Elias  |   Valverde Zamora                      | 2020066920 |
+| Anthony Alexander    |  Cano Sucso                        | 2020067573 |
+| Jose Luis            |    Jarro Cachi                       | 2020067148 |
+| Josue Abraham  |              Chambilla Zuñiga           | 2020067575 |
 | Tell Ivan                       | Casilla Maquera        | 2017057888 |
 
 # Flask
