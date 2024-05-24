@@ -1,0 +1,43 @@
+{% extends './base.html' %}
+{% block title %}Resultados del Cuestionario{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+
+<div class="contenido">
+  <h2>Resultados del Cuestionario</h2>
+  <p><strong>Resultado:</strong> {{ cuestionario.Resultado }}</p>
+  
+  <h3>Respuestas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Pregunta</th>
+        <th>Respuesta</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for respuesta in respuestas %}
+      <tr>
+        <td>{{ respuesta.Pregunta }}</td>
+        <td>{{ respuesta.Respuesta }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Fortalezas</h3>
+  <ul>
+    {% for fortaleza in fortalezas %}
+    <li>{{ fortaleza.Fortaleza }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Debilidades</h3>
+  <ul>
+    {% for debilidad in debilidades %}
+    <li>{{ debilidad.Debilidad }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

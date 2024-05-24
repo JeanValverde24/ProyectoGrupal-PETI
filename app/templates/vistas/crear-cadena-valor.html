@@ -1,0 +1,174 @@
+{% extends './base.html' %}
+{% block title %}Cadena Valor{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crear-cadena-valor.css')}}" />
+
+<div class="contenido">
+    <div class="ancho" style="display: block !important;">
+        <div class="container" style="margin-bottom: 20px;">
+            <div class="header">
+                <h2>Este es la continuación de la segunda página al crear un nuevo Plan Estratégico (Análisis de Cadena de Valor)</h2>
+            </div>
+            <div class="content">
+                <div class="grid">
+                    <h3>Crear la grilla del autodiagnóstico</h3>
+                    <table id="gridTable">
+                        <tr>
+                            <th></th>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                        </tr>
+                        <tr>
+                            <td>A. La empresa no tiene deficiencia alguna de los defectos en la producción de productos/servicios.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>B. La empresa omite los medios productivos tecnológicamente.</td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                        </tr>
+                        <tr>
+                            <td>C. La evaluación y dispersión de los sistemas de información y control de gestión definida y eficaz.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>D. Los medios técnicos y tecnológicos de la empresa están implantados para competir en un futuro a corto, medio y largo plazo.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>E. La empresa no tiene ningún problema de organización.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>F. La empresa es un referente en su sector en I+D+I.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>G. La aceptación de los procedimientos de la empresa (en ISO, etc.) les lleva una grisol frente de ventaja competitiva.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>H. La empresa dispone de páginas web, y esto se emplea de esta herramienta para adherir relaciones con clientes y proveedores.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>I. Existe una política de promoción exterior coherente.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>J. Los productos/servicios que desarrolla nuestra empresa fueron importantes con una tecnología difícil de imitar.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>K. La empresa es referente en su sector en la optimización, en términos de coste, de su cadena de producción.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>L. La informatización de la empresa es una fuente de ventaja competitiva con respecto a sus competidores.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                        <tr>
+                            <td>M. Los canales de distribución de la empresa son una corriente logística a nuestros competidores: son ágiles y diferenciadamente valorados por el cliente respecto a nuestras.</td>
+                            <td class="cell">x</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">x</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form action="{{ url_for('guardar_cadena_valor') }}" method="POST">
+                <div class="form-group">
+                    <div style="display: ruby-text; margin-bottom: 10px;">
+                        <label for="fortalezas">FORTALEZAS</label>
+                        <div class="buttons">
+                            <button type="button" onclick="addFortaleza()">Agregar</button>
+                        </div>
+                    </div>
+                    <div id="fortalezas">
+                        <input type="text" name="fortaleza1" class="fortaleza" placeholder="F1:">
+                        <input type="text" name="fortaleza2" class="fortaleza" placeholder="F2:">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="display: ruby-text; margin-bottom: 10px;">
+                        <label for="debilidades">DEBILIDADES</label>
+                        <div class="buttons">
+                            <button type="button" onclick="addDebilidad()">Agregar</button>
+                        </div>
+                    </div>
+                    <div id="debilidades">
+                        <input type="text" name="debilidad1" class="debilidad" placeholder="D1:">
+                        <input type="text" name="debilidad2" class="debilidad" placeholder="D2:">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit">Guardar y continuar</button>
+                    <button type="button" id="cancelButton">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var urlForCrearUnidadEstrategica = '{{ url_for("crear_unidad_estrategica") }}';
+</script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% endblock %}

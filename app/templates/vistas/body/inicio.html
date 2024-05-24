@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css')}}">
+
+<div class="contenido">
+    <h2>Bienvenido, {{ user_data['Nombres'] }} {{ user_data['Apellidos'] }}</h2>
+    <div class="top-bar">
+        <input type="text" placeholder="Buscar" />
+        <a href="{{ url_for('crearplan') }}"><button>Crear</button></a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de la Empresa</th>
+                <th>Misión</th>
+                <th>Visión</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if empresas %}
+                {% for empresa in empresas %}
+                    <tr>
+                        <td>{{ empresa.NombreEmpresa }}</td>
+                        <td>{{ empresa.Mision }}</td>
+                        <td>{{ empresa.Vision }}</td>
+                        <td>
+                            <button class="action-button ver-button">Ver</button>
+                            <button class="action-button editar-button">Editar</button>
+                            <button class="action-button eliminar-button">Eliminar</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4">No hay datos disponibles</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+{% endblock %}
