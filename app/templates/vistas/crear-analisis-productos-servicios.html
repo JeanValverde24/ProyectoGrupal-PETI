@@ -1,0 +1,180 @@
+{% extends './base.html' %} 
+{% block title %}Análisis de Productos y Servicios{% endblock %} 
+
+{% block body%} 
+
+{% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crear-analisis-productos-servicios.css')}}" />
+
+<div class="contenido">
+    <div class="ancho" style="display: block !important;">
+
+        <h2>Previsión de Ventas</h2>
+        <table>
+            <tr>
+                <th>PRODUCTOS</th>
+                <th>VENTAS</th>
+                <th>% S/ TOTAL</th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Producto 1"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Producto 2"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Producto 3"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Producto 4"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Producto 5"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <th>TOTAL</th>
+                <th><input type="text"></th>
+                <th><input type="text"></th>
+            </tr>
+        </table>
+    
+        <h2>Tasas de Crecimiento del Mercado (TCM)</h2>
+        <table>
+            <tr>
+                <th rowspan="2">PERIODOS</th>
+                <th colspan="5">MERCADOS</th>
+            </tr>
+            <tr>
+                <th><input type="text" placeholder="Producto 1"></th>
+                <th><input type="text" placeholder="Producto 2"></th>
+                <th><input type="text" placeholder="Producto 3"></th>
+                <th><input type="text" placeholder="Producto 4"></th>
+                <th><input type="text" placeholder="Producto 5"></th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Periodo 1"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Periodo 2"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Periodo 3"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Periodo 4"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Periodo 5"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+    
+        <h2>BCG</h2>
+        <table>
+            <tr>
+                <th>Producto 1</th>
+                <th>Producto 2</th>
+                <th>Producto 3</th>
+                <th>Producto 4</th>
+                <th>Producto 5</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+    
+        <h2>TCM</h2>
+        <p>PRM * <input type="text"> <input type="text"> <input type="text"> <input type="text"> <input type="text"></p>
+    
+        <h2>% S/VTAS *</h2>
+        <p><input type="text"> <input type="text"> <input type="text"> <input type="text"> <input type="text"></p>
+    
+        <h2>Evolución de la Empresa</h2>
+        <table>
+            <tr>
+                <th>Producto 1</th>
+                <th>&nbsp;</th>
+                <th>Producto 2</th>
+                <th>&nbsp;</th>
+                <th>Producto 3</th>
+                <th>&nbsp;</th>
+                <th>Producto 4</th>
+                <th>&nbsp;</th>
+                <th>Producto 5</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>EMPRESA</td>
+                <td>VS022</td>
+                <td>$ EMPRESA</td>
+                <td>VS022</td>
+                <td>$ EMPRESA</td>
+                <td>VS022</td>
+                <td>$ EMPRESA</td>
+                <td>VS022</td>
+                <td>$ EMPRESA</td>
+                <td>VS022</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+    
+        <div>
+            <button>Boton(Guardar y continuar)</button>
+            <a href="{{ url_for('crearcadenavalor') }}"><button>CANCELAR</button></a>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

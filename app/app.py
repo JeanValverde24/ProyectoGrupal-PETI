@@ -64,6 +64,9 @@ def crearunidadestrategica():
 def crearcadenavalor():
     return render_template('vistas/crear-cadena-valor.html')
 
+@app.route('/crear-analisis-productos-servicios')
+def crearanalisisproductosservicios():
+    return render_template('vistas/crear-analisis-productos-servicios.html')
 
 
 

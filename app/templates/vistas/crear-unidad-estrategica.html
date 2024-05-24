@@ -11,6 +11,7 @@
 
 <div class="contenido">
   <div class="ancho">
+    <a href="{{ url_for('crearcadenavalor') }}"><button>Siguiente</button></a>
     <h3>Comente en este apartado las distintas UEN que tiene su empresa:</h3>
     <textarea id="comentarios" name="comentarios" rows="5" cols="50"></textarea>
 
@@ -60,6 +61,6 @@
       <a href="{{ url_for('crearplan') }}"><button>Atras</button></a>
     </div>
   </div>
-  <a href="{{ url_for('crearcadenavalor') }}" style="position: absolute;"><button>Siguiente</button></a>
+  
 </div>
 {% endblock %}

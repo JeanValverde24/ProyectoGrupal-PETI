@@ -1,9 +1,15 @@
-{% extends './base.html' %} {% block title %}Cadena Valor{% endblock %} {% block body
-%} {% include './vistas/menu.html' %}
+{% extends './base.html' %} 
+{% block title %}Cadena Valor{% endblock %} 
+
+{% block body%} 
+
+{% include './vistas/menu.html' %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/crear-cadena-valor.css')}}" />
 
 <div class="contenido">
     <div class="ancho" style="display: block !important;">
+        <a href="{{ url_for('crearanalisisproductosservicios') }}" style="position: absolute;"><button>Siguiente</button></a>
+
         <div class="container" style="margin-bottom: 20px;">
             <div class="header">
                 <h2>Este es la continuación de la segunda página al crear un nuevo Plan Estratégico (Análisis de Cadena
@@ -171,6 +177,7 @@
                 <a href="{{ url_for('crearunidadestrategica') }}"><button>CANCELAR</button></a>
             </div>
         </div>
+
         <script>
             function toggleCell(cell) {
                 if (cell.innerHTML == "x") {
