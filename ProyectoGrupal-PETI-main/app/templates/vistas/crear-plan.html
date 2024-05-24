@@ -1,40 +1,23 @@
-{% extends './base.html' %} {% block title %}Plan Estrategico{% endblock %} {% block body
-%} {% include './vistas/menu.html' %}
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='css/crear-plan.css')}}"
-/>
+{% extends './base.html' %}
+{% block title %}Plan Estrategico{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crear-plan.css')}}" />
 
 <div class="contenido">
   <div class="ancho">
     <div class="formulario">
       <h2>Crear Plan Estrategico</h2>
-      <form action="" /*method="POST"*/>
+      <form action="{{ url_for('crearplan') }}" method="POST">
         <div class="container-form">
           <div class="general">
             <label for="nombre_empresa">Nombre de la Empresa:</label>
-            <input
-              type="text"
-              id="nombre_empresa"
-              name="nombre_empresa"
-              required
-            />
+            <input type="text" id="nombre_empresa" name="nombre_empresa" required />
             <label for="mision">Misión:</label>
-            <textarea
-              id="mision"
-              name="mision"
-              rows="4"
-              required
-              style="width: 90%"
-            ></textarea>
+            <textarea id="mision" name="mision" rows="4" required style="width: 90%"></textarea>
             <label for="vision">Visión:</label>
-            <textarea
-              id="vision"
-              name="vision"
-              rows="4"
-              required
-              style="width: 90%"
-            ></textarea>
+            <textarea id="vision" name="vision" rows="4" required style="width: 90%"></textarea>
           </div>
           <div class="valores">
             <div>
@@ -55,23 +38,18 @@
             </div>
           </div>
         </div>
-
         <div class="botones">
-          <a href="{{ url_for('crearunidadestrategica') }}"><button type="submit">Guardar y Continuar</button></a>
+          <button type="submit">Guardar y Continuar</button>
           <button type="button" onclick="cancelar()">Cancelar</button>
-
-          
         </div>
       </form>
     </div>
-    <a href="{{ url_for('crearunidadestrategica') }}" style="position: absolute;"><button>Siguiente</button></a>
   </div>
-
-  <script>
-    function cancelar() {
-      window.location.href = "{{ url_for('inicio') }}";
-    }
-  </script>
-
-  {% endblock %}
 </div>
+
+<script>
+  function cancelar() {
+    window.location.href = "{{ url_for('inicio') }}";
+  }
+</script>
+{% endblock %}
