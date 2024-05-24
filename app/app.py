@@ -60,6 +60,10 @@ def crearplan():
 def crearunidadestrategica():
     return render_template('vistas/crear-unidad-estrategica.html')
 
+@app.route('/crear-cadena-valor')
+def crearcadenavalor():
+    return render_template('vistas/crear-cadena-valor.html')
+
 
 
 
