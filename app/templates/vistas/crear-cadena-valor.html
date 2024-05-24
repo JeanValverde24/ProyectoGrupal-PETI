@@ -1,0 +1,189 @@
+{% extends './base.html' %} {% block title %}Cadena Valor{% endblock %} {% block body
+%} {% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crear-cadena-valor.css')}}" />
+
+<div class="contenido">
+    <div class="ancho" style="display: block !important;">
+        <div class="container" style="margin-bottom: 20px;">
+            <div class="header">
+                <h2>Este es la continuación de la segunda página al crear un nuevo Plan Estratégico (Análisis de Cadena
+                    de Valor)</h2>
+            </div>
+            <div class="content">
+                <div class="grid">
+                    <h3>Crear la grilla del autodiagnóstico</h3>
+                    <table id="gridTable">
+                        <tr>
+                            <th></th>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                        </tr>
+                        <tr>
+                            <td>A. La empresa no tiene deficiencia alguna de los defectos en la producción de
+                                productos/servicios.</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>B. La empresa omiteis los medios productivos tecno;igi-cicamente</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                        </tr>
+                        <tr>
+                            <td>D. La evalucion y disprse de los sistemas de informacion y control de gestion defintida
+                                y efixar</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>E. Los merdes ticcnicos y tecnologicas de la empresa estat implantados pars competir en
+                                un futuro a certo. medio y largo</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>F. La empresa no tiene nirgun problema de organicacion</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>G. La empresa es un referente en su sector en I+D+I.</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>H. La acscestanda de los procedimientos de la empresa (en ISO, etc.) tres leva una
+                                gristoal frente de verdaja competitiva</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>I. La empresa dispene de pginas weh, y esto se emplea de esta herra-mienta para aderen
+                                relationes con clientes y proveedores,</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>J. Exite una politica de promcciori exteror coherente</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>K.Los producto/serncios que desarrolia nuestra empresa fueron importante una teconologia
+                                dificil de imitar</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>L. La empresa es referente en su sector en la optimizacion, en terminos de coste, de su
+                                cadena de produredon.</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>M. La inforrnatiacion de la empresa es una fuente de ventaja compctitiva con respeecto a
+                                sus comptidores</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <tr>
+                            <td>N. Los canales de distrivuion de ia empresa son una correcnte logistica a nuestros
+                                compctidores: son agistimcs; y difercnciaimnerite valorados por el cliente respecto a
+                                ruestras</td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)"></td>
+                            <td class="cell" onclick="toggleCell(this)">x</td>
+                        </tr>
+                        <!-- Aquí van las demás filas -->
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                <div style="display: ruby-text; margin-bottom: 10px;">
+                    <label for="fortalezas">FORTALEZAS</label>
+                    <div class="buttons">
+                        <button>Agregar</button>
+                    </div>
+                </div>
+
+                <div id="fortalezas">
+                    <input type="text" placeholder="F1:">
+                    <input type="text" placeholder="F2:">
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="display: ruby-text; margin-bottom: 10px;">
+                    <label for="fortalezas">DEBILIDADES</label>
+                    <div class="buttons">
+                        <button>Agregar</button>
+                    </div>
+                </div>
+                <div id="debilidades">
+                    <input type="text" placeholder="D1:">
+                    <input type="text" placeholder="D2:">
+                </div>
+            </div>
+            <div class="buttons">
+                <button style="margin-right: 10px;">Boton(Guardar y continuar)</button>
+                <a href="{{ url_for('crearunidadestrategica') }}"><button>CANCELAR</button></a>
+            </div>
+        </div>
+        <script>
+            function toggleCell(cell) {
+                if (cell.innerHTML == "x") {
+                    cell.innerHTML = "x";
+                } else {
+                    cell.innerHTML = "x";
+                }
+            }
+        </script>
+
+    </div>
+</div>
+
+
+
+{% endblock %}
