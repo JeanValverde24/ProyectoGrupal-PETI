@@ -6,152 +6,134 @@
 
 ### Scripts parala base de datos:
 ```sql
--- Tabla AccionesComplementarias
-CREATE TABLE `AccionesComplementarias` (
-  `IdAcciones` int NOT NULL,
-  `FkEmpresa` int NOT NULL,
-  `Accion1` text,
-  `Accion2` text,
-  `Accion3` text,
-  `Accion4` text,
-  `Accion5` text,
-  `Accion6` text,
-  `Accion7` text,
-  `Accion8` text,
-  `Accion9` text,
-  `Accion10` text,
-  `Accion11` text,
-  `Accion12` text,
-  `Accion13` text,
-  `Accion14` text,
-  `Accion15` text,
-  `Accion16` text,
-  PRIMARY KEY (`IdAcciones`),
-  KEY `FK_AccionesComplementarias_Empresa` (`FkEmpresa`),
-  CONSTRAINT `FK_AccionesComplementarias_Empresa` FOREIGN KEY (`FkEmpresa`) REFERENCES `Empresa` (`IdEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.4.28-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             12.3.0.6589
+-- --------------------------------------------------------
 
--- Tabla AnalisisFoda
-CREATE TABLE `AnalisisFoda` (
-  `idAnalisis` int NOT NULL,
-  `FkEmpresa` int NOT NULL,
-  `FkDebilidades` int NOT NULL,
-  `FkAmenazas` int NOT NULL,
-  `FkFortalezas` int NOT NULL,
-  `FkOportunidades` int NOT NULL,
-  PRIMARY KEY (`idAnalisis`),
-  KEY `FK_AnalisisFoda_Empresa` (`FkEmpresa`),
-  CONSTRAINT `FK_AnalisisFoda_Empresa` FOREIGN KEY (`FkEmpresa`) REFERENCES `Empresa` (`IdEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Tabla Empresa
-CREATE TABLE `Empresa` (
-  `IdEmpresa` int NOT NULL AUTO_INCREMENT,
-  `FkUsuario` int NOT NULL,
-  `NombreEmpresa` varchar(150) NOT NULL,
-  `Mision` text NOT NULL,
-  `Vision` text NOT NULL,
-  `FkValores` int NOT NULL,
-  `UnidadesEstrategicas` text NOT NULL,
-  `FkObjetivosEstrategicos` int NOT NULL,
-  `FkAnálisisFODA` int NOT NULL,
-  `IdeEstrategicas` text NOT NULL,
-  `FkAccionesCompetitivas` int NOT NULL,
-  `Conclusiones` text NOT NULL,
-  PRIMARY KEY (`IdEmpresa`),
-  KEY `FK_Empresa_Usuario` (`FkUsuario`),
-  KEY `FK_Empresa_ObjetivosEstrategicos` (`FkObjetivosEstrategicos`),
-  KEY `FK_Empresa_Valores` (`FkValores`),
-  KEY `FK_Empresa_AccionesComplementarias` (`FkAccionesCompetitivas`),
-  KEY `FK_Empresa_AnalisisFoda` (`FkAnálisisFODA`),
-  CONSTRAINT `FK_Empresa_AccionesComplementarias` FOREIGN KEY (`FkAccionesCompetitivas`) REFERENCES `AccionesComplementarias` (`IdAcciones`),
-  CONSTRAINT `FK_Empresa_AnalisisFoda` FOREIGN KEY (`FkAnálisisFODA`) REFERENCES `AnalisisFoda` (`idAnalisis`),
-  CONSTRAINT `FK_Empresa_ObjetivosEstrategicos` FOREIGN KEY (`FkObjetivosEstrategicos`) REFERENCES `ObjetivosEstrategicos` (`IDobjetivosEst`),
-  CONSTRAINT `FK_Empresa_Usuario` FOREIGN KEY (`FkUsuario`) REFERENCES `Usuario` (`IdUsuario`),
-  CONSTRAINT `FK_Empresa_Valores` FOREIGN KEY (`FkValores`) REFERENCES `Valores` (`IdValores`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Volcando estructura de base de datos para plan_estrategico
+CREATE DATABASE IF NOT EXISTS `plan_estrategico` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `plan_estrategico`;
 
--- Tabla ObjetivosEspecificos
-CREATE TABLE `ObjetivosEspecificos` (
-  `IdObjEsp` int NOT NULL,
-  `FkObjetivosGen` int NOT NULL,
-  `ObjEspecifico1` text NOT NULL,
-  `ObjEspecifico2` text NOT NULL,
-  `ObjEspecifico3` text NOT NULL,
-  `ObjEspecifico4` text NOT NULL,
-  `ObjEspecifico5` text NOT NULL,
-  `ObjEspecifico6` text NOT NULL,
-  PRIMARY KEY (`IdObjEsp`),
-  KEY `FK_ObjetivosEspecificos_ObjetivosGenerales` (`FkObjetivosGen`),
-  CONSTRAINT `FK_ObjetivosEspecificos_ObjetivosGenerales` FOREIGN KEY (`FkObjetivosGen`) REFERENCES `ObjetivosGenerales` (`idObjGen`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Volcando estructura para tabla plan_estrategico.debilidades
+CREATE TABLE IF NOT EXISTS `debilidades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `debilidad` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `debilidades_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `planes_estrategicos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tabla ObjetivosEstrategicos
-CREATE TABLE `ObjetivosEstrategicos` (
-  `IDobjetivosEst` int NOT NULL,
-  `FkEmpresa` int NOT NULL,
-  `FkObjetivosGenerales` int NOT NULL,
-  PRIMARY KEY (`IDobjetivosEst`),
-  KEY `FK_ObjetivosEstrategicos_Empresa` (`FkEmpresa`),
-  KEY `FK_ObjetivosEstrategicos_ObjetivosGenerales` (`FkObjetivosGenerales`),
-  CONSTRAINT `FK_ObjetivosEstrategicos_Empresa` FOREIGN KEY (`FkEmpresa`) REFERENCES `Empresa` (`IdEmpresa`),
-  CONSTRAINT `FK_ObjetivosEstrategicos_ObjetivosGenerales` FOREIGN KEY (`FkObjetivosGenerales`) REFERENCES `ObjetivosGenerales` (`idObjGen`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- La exportación de datos fue deseleccionada.
 
--- Tabla ObjetivosGenerales
-CREATE TABLE `ObjetivosGenerales` (
-  `idObjGen` int NOT NULL,
-  `FkObjetivosEst` int NOT NULL,
-  `ObjGeneral1` text NOT NULL,
-  `ObjGeneral2` text NOT NULL,
-  `ObjGeneral3` text NOT NULL,
-  PRIMARY KEY (`idObjGen`),
-  KEY `FK_ObjetivosGenerales_ObjetivosEstrategicos` (`FkObjetivosEst`),
-  CONSTRAINT `FK_ObjetivosGenerales_ObjetivosEstrategicos` FOREIGN KEY (`FkObjetivosEst`) REFERENCES `ObjetivosEstrategicos` (`IDobjetivosEst`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Volcando estructura para tabla plan_estrategico.fortalezas
+CREATE TABLE IF NOT EXISTS `fortalezas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `fortaleza` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `fortalezas_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `planes_estrategicos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- La exportación de datos fue deseleccionada.
 
--- Tabla Usuario
-CREATE TABLE `Usuario` (
-  `IdUsuario` int NOT NULL AUTO_INCREMENT,
-  `Usuario` varchar(150) NOT NULL,
-  `Nombres` varchar(150) NOT NULL,
-  `Apellidos` varchar(150) NOT NULL,
-  `Correo` varchar(250) NOT NULL,
-  `Celular` varchar(9) NOT NULL,
-  `Contrasenia` varchar(257) NOT NULL,
-  PRIMARY KEY (`IdUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Volcando estructura para tabla plan_estrategico.objetivos_especificos
+CREATE TABLE IF NOT EXISTS `objetivos_especificos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `objetivo_general_id` int(11) NOT NULL,
+  `objetivo_especifico` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `objetivo_general_id` (`objetivo_general_id`),
+  CONSTRAINT `objetivos_especificos_ibfk_1` FOREIGN KEY (`objetivo_general_id`) REFERENCES `objetivos_generales` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tabla Valoracion
-CREATE TABLE `Valoracion` (
-  `IdValoracion` int NOT NULL,
-  `FkAutodiagnostico` int NOT NULL,
-  `Punto0` char(2) NOT NULL,
-  `Punto1` char(2) NOT NULL,
-  `Punto2` char(2) NOT NULL,
-  `Punto3` char(2) NOT NULL,
-  `Punto4` char(2) NOT NULL,
-  PRIMARY KEY (`IdValoracion`),
-  KEY `FK_Valoracion_Autodiagnostico` (`FkAutodiagnostico`),
-  CONSTRAINT `FK_Valoracion_Autodiagnostico` FOREIGN KEY (`FkAutodiagnostico`) REFERENCES `Autodiagnostico` (`IdAutodiagnostico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- La exportación de datos fue deseleccionada.
 
--- Tabla Valores
-CREATE TABLE `Valores` (
-  `IdValores` int NOT NULL,
-  `FkEmpresa` int NOT NULL,
-  `Valor1` varchar(50) NOT NULL,
-  `Valor2` varchar(50) NOT NULL,
-  `Valor3` varchar(50) NOT NULL,
-  `Valor4` varchar(50) DEFAULT NULL,
-  `Valor5` varchar(50) DEFAULT NULL,
-  `Valor6` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`IdValores`),
-  KEY `FK_Valores_Empresa` (`FkEmpresa`),
-  CONSTRAINT `FK_Valores_Empresa` FOREIGN KEY (`FkEmpresa`) REFERENCES `Empresa` (`IdEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Volcando estructura para tabla plan_estrategico.objetivos_generales
+CREATE TABLE IF NOT EXISTS `objetivos_generales` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `objetivo_general` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `objetivos_generales_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `planes_estrategicos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla plan_estrategico.planes_estrategicos
+CREATE TABLE IF NOT EXISTS `planes_estrategicos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(11) NOT NULL,
+  `nombre_empresa` varchar(255) NOT NULL,
+  `mision` text NOT NULL,
+  `vision` text NOT NULL,
+  `resultado_autodiagnostico` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuario_id` (`usuario_id`),
+  CONSTRAINT `planes_estrategicos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla plan_estrategico.respuestas_autodiagnostico
+CREATE TABLE IF NOT EXISTS `respuestas_autodiagnostico` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `pregunta_num` int(11) NOT NULL,
+  `respuesta` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `respuestas_autodiagnostico_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `planes_estrategicos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla plan_estrategico.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `apellidos` varchar(255) NOT NULL,
+  `correo_electronico` varchar(255) NOT NULL,
+  `contrasena` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla plan_estrategico.valores
+CREATE TABLE IF NOT EXISTS `valores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `valor` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `valores_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `planes_estrategicos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
 ```
-- *Esta es una base de datos de prueba, el modelo seguira siendo el mismo pero el motor de base de datos va a variar*
+- Base de datos sin la matriz de continuidad
 
