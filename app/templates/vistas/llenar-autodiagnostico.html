@@ -1,0 +1,148 @@
+{% extends './base.html' %}
+{% block title %}Autodiagnóstico{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/autodiagnostico.css') }}">
+
+<div class="container">
+    <div class="header">
+        <h2>Este es la continuación de la segunda página al crear un nuevo Plan Estratégico (Análisis de Cadena de Valor)</h2>
+    </div>
+    <div class="content">
+        <div class="grid">
+            <h3>Crear la grilla del autodiagnóstico</h3>
+            <form action="{{ url_for('llenarautodiagnostico') }}" method="POST">
+                <input type="hidden" id="hiddenTotalResult" name="totalResult">
+                <table id="gridTable">
+                    <tr>
+                        <th></th>
+                        <th>4</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>1</th>
+                        <th>0</th>
+                    </tr>
+                    {% for i, question in [
+                        (1, "La empresa tiene una política sistematizada de cero defectos en la producción de productos/servicios."),
+                        (2, "La empresa emplea los medios productivos tecnológicamente más avanzados de su sector."),
+                        (3, "La empresa dispone de un sistema de información y control de gestión eficiente y eficaz."),
+                        (4, "Los medios técnicos y tecnológicos de la empresa están preparados para competir en un futuro a corto, medio y largo plazo."),
+                        (5, "La empresa es un referente en su sector en I+D+i."),
+                        (6, "La excelencia de los procedimientos de la empresa (en ISO, etc.) son una principal fuente de ventaja competitiva."),
+                        (7, "La empresa dispone de página web, y esta se emplea no sólo como escaparate virtual de productos/servicios, sino también para establecer relaciones con clientes y proveedores."),
+                        (8, "Los productos/servicios que desarrolla nuestra empresa llevan incorporada una tecnología difícil de imitar."),
+                        (9, "La empresa es referente en su sector en la optimización, en términos de coste, de su cadena de producción, siendo ésta una de sus principales ventajas competitivas."),
+                        (10, "La informatización de la empresa es una fuente de ventaja competitiva clara respecto a sus competidores."),
+                        (11, "Los canales de distribución de la empresa son una importante fuente de ventajas competitivas."),
+                        (12, "Los productos/servicios de la empresa son altamente, y diferencialmente, valorados por el cliente respecto a nuestros competidores."),
+                        (13, "La empresa dispone y ejecuta un sistemático plan de marketing y ventas."),
+                        (14, "La empresa tiene optimizada su gestión financiera."),
+                        (15, "La empresa busca continuamente mejorar la relación con sus clientes cortando los plazos de ejecución, personalizando la oferta o mejorando las condiciones de entrega. Pero siempre partiendo de un plan previo."),
+                        (16, "La empresa es referente en su sector en el lanzamiento de innovadores productos y servicios de éxito demostrado en el mercado."),
+                        (17, "Los Recursos Humanos son especialmente responsables del éxito de la empresa, considerándolos incluso como el principal activo estratégico."),
+                        (18, "Se tiene una plantilla altamente motivada, que conoce con claridad las metas, objetivos y estrategias de la organización."),
+                        (19, "La empresa siempre trabaja conforme a una estrategia y objetivos claros."),
+                        (20, "La gestión del circulante está optimizada."),
+                        (21, "Se tiene definido claramente el posicionamiento estratégico de todos los productos de la empresa."),
+                        (22, "Se dispone de una política de marca basada en la reputación que la empresa genera, en la gestión de relación con el cliente y en el posicionamiento estratégico previamente definido."),
+                        (23, "La cartera de clientes de nuestra empresa está altamente fidelizada, ya que tenemos como principal propósito el deleitarlos día a día."),
+                        (24, "Nuestra política y equipo de ventas y marketing es una importante ventaja competitiva de nuestra empresa respecto al sector."),
+                        (25, "El servicio al cliente que prestamos es uno de nuestras principales ventajas competitivas respecto a competidores.")
+                    ] %}
+                    <tr>
+                        <td>{{ i }}. {{ question }}</td>
+                        {% for j in range(4, -1, -1) %}
+                        <td class="cell" onclick="toggleCell(this, {{ i }}, {{ j }})"></td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="6" style="text-align: right;"><strong>Resultado: <span id="totalResult">0.00%</span></strong></td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="form-group">
+        <label for="fortalezas">FORTALEZAS</label>
+        <div id="fortalezas">
+            <input type="text" placeholder="F1:" name="fortalezas[]">
+            <input type="text" placeholder="F2:" name="fortalezas[]">
+        </div>
+        <button type="button" onclick="addTextBox('fortalezas', 'fortalezas[]')">Añadir</button>
+        <button type="button" onclick="removeTextBox('fortalezas')">Quitar</button>
+    </div>
+    <div class="form-group">
+        <label for="debilidades">DEBILIDADES</label>
+        <div id="debilidades">
+            <input type="text" placeholder="D1:" name="debilidades[]">
+            <input type="text" placeholder="D2:" name="debilidades[]">
+        </div>
+        <button type="button" onclick="addTextBox('debilidades', 'debilidades[]')">Añadir</button>
+        <button type="button" onclick="removeTextBox('debilidades')">Quitar</button>
+    </div>
+    <div class="buttons">
+        <button type="submit">Guardar y Continuar</button>
+        <button type="button" onclick="cancelar()">Cancelar</button>
+    </div>
+</div>
+
+<script>
+    function toggleCell(cell, questionNumber, value) {
+        var row = cell.parentNode;
+        var cells = row.getElementsByClassName('cell');
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].innerHTML = "";
+        }
+        cell.innerHTML = "x";
+        cell.innerHTML += "<input type='hidden' name='pregunta" + questionNumber + "' value='" + value + "'>";
+        calculateTotal();
+    }
+
+    function calculateTotal() {
+        var table = document.getElementById("gridTable");
+        var total = 0;
+        var numRows = table.rows.length - 2; // Exclude header and result row
+        var maxScore = numRows * 4; // Total possible score
+    
+        for (var i = 1; i <= numRows; i++) { // Exclude header and result row
+            for (var j = 1; j < table.rows[i].cells.length; j++) {
+                if (table.rows[i].cells[j].innerHTML.includes("x")) {
+                    total += (j - 1); // Column 1 has value 4, column 2 has value 3, etc.
+                }
+            }
+        }
+    
+        var percentage = ((maxScore - total) / maxScore) * 100; // Calculate percentage
+        percentage = percentage.toFixed(2); // Round to 2 decimal places
+    
+        document.getElementById("totalResult").innerText = "Resultado: " + percentage + "%";
+        document.getElementById("hiddenTotalResult").value = percentage; // Store the result in a hidden field
+    }
+
+    function addTextBox(containerId, inputName) {
+        var container = document.getElementById(containerId);
+        var inputs = container.getElementsByTagName('input');
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.name = inputName;
+        newInput.placeholder = (containerId.charAt(0).toUpperCase() + containerId.slice(1, -1)) + (inputs.length + 1) + ':';
+        container.appendChild(newInput);
+    }
+
+    function removeTextBox(containerId) {
+        var container = document.getElementById(containerId);
+        var inputs = container.getElementsByTagName('input');
+        if (inputs.length > 2) { // Ensure at least two inputs remain
+            container.removeChild(inputs[inputs.length - 1]);
+        }
+    }
+
+    function cancelar() {
+        window.location.href = "{{ url_for('inicio') }}";
+    }
+</script>
+{% endblock %}

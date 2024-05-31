@@ -25,13 +25,15 @@
             {% if empresas %}
                 {% for empresa in empresas %}
                     <tr>
-                        <td>{{ empresa.NombreEmpresa }}</td>
-                        <td>{{ empresa.Mision }}</td>
-                        <td>{{ empresa.Vision }}</td>
+                        <td>{{ empresa.nombre_empresa }}</td>
+                        <td>{{ empresa.mision }}</td>
+                        <td>{{ empresa.vision }}</td>
                         <td>
-                            <button class="action-button ver-button">Ver</button>
+                            <a href="{{ url_for('ver_plan', plan_id=empresa.id) }}"><button class="action-button ver-button">Ver</button></a>
                             <button class="action-button editar-button">Editar</button>
-                            <button class="action-button eliminar-button">Eliminar</button>
+                            <form action="{{ url_for('eliminar_plan', plan_id=empresa.id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="action-button eliminar-button">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                 {% endfor %}

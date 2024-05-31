@@ -1,0 +1,98 @@
+{% extends './base.html' %}
+{% block title %}Ver Plan Estratégico{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ver_plan.css') }}">
+
+<div class="container">
+    <div class="header">
+        <h2>Plan Estratégico: {{ plan.nombre_empresa }}</h2>
+    </div>
+    
+    <div class="section">
+        <h3>Misión y Visión</h3>
+        <p><strong>Misión:</strong> {{ plan.mision }}</p>
+        <p><strong>Visión:</strong> {{ plan.vision }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Valores</h3>
+        <ul>
+            {% for valor in valores %}
+                <li>{{ valor.valor }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Objetivos Generales y Específicos</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Objetivo General</th>
+                    <th>Objetivos Específicos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj_gen in objetivos_generales %}
+                    <tr>
+                        <td rowspan="{{ obj_gen.objetivos_especificos|length }}">{{ obj_gen.objetivo_general }}</td>
+                        <td>{{ obj_gen.objetivos_especificos[0].objetivo_especifico }}</td>
+                    </tr>
+                    {% for obj_esp in obj_gen.objetivos_especificos[1:] %}
+                        <tr>
+                            <td>{{ obj_esp.objetivo_especifico }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>Respuestas del Autodiagnóstico</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for respuesta in respuestas %}
+                    <tr>
+                        <td>{{ respuesta.pregunta_num }}</td>
+                        <td>{{ respuesta.respuesta }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><strong>Resultado:</strong> {{ plan.resultado_autodiagnostico }}%</p>
+    </div>
+
+    <div class="section">
+        <h3>Fortalezas</h3>
+        <ul>
+            {% for fortaleza in fortalezas %}
+                <li>{{ fortaleza.fortaleza }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Debilidades</h3>
+        <ul>
+            {% for debilidad in debilidades %}
+                <li>{{ debilidad.debilidad }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="buttons">
+        <button onclick="window.history.back()">Volver</button>
+    </div>
+</div>
+
+{% endblock %}

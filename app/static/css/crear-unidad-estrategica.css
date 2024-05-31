@@ -86,3 +86,60 @@ textarea[rows="3"] {
 .botones button[type="button"]:hover {
   background-color: #c82333;
 }
+
+th {
+  background-color: #f2f2f2;
+}
+
+thead th {
+  text-align: center;
+}
+
+tbody td {
+  padding: 0;
+}
+
+tbody td textarea {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  resize: none;
+}
+
+.mision-cell {
+  text-align: center;
+  vertical-align: middle;
+  background-color: #e6f2ff;
+}
+
+textarea[readonly] {
+  background-color: #e6f2ff;
+}
+
+.obj-gen-cell {
+  vertical-align: middle;
+}
+
+.obj-gen-1 textarea {
+  background-color: #f2e6ff;
+}
+
+.obj-gen-2 textarea {
+  background-color: #e6f7ff;
+}
+
+.obj-gen-3 textarea {
+  background-color: #fffbe6;
+}
+
+.obj-esp-1 textarea {
+  background-color: #f2e6ff;
+}
+
+.obj-esp-2 textarea {
+  background-color: #e6f7ff;
+}
+
+.obj-esp-3 textarea {
+  background-color: #fffbe6;
+}

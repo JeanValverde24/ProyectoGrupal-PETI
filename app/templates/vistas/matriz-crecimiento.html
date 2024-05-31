@@ -1,0 +1,372 @@
+{% extends './base.html' %}
+{% block title %}Matriz de Crecimiento{% endblock %}
+
+{% block body %}
+{% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/matriz-crecimiento.css') }}">
+
+<div class="container">
+    <div class="header">
+        <h2>Matriz de Crecimiento</h2>
+    </div>
+    <div class="content">
+        <div class="table-container">
+            <h3>Previsión de Ventas</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Productos</th>
+                        <th>Ventas</th>
+                        <th>% S/ Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="bg-blue">Producto 1</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-yellow">Producto 2</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-red">Producto 3</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-green">Producto 4</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-brown">Producto 5</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td contenteditable="true">0</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h3>Tasas de Crecimiento del Mercado (TCM)</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Periodos</th>
+                        <th>Producto 1</th>
+                        <th>Producto 2</th>
+                        <th>Producto 3</th>
+                        <th>Producto 4</th>
+                        <th>Producto 5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td contenteditable="true">2012</td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">2013</td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">2014</td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">2015</td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">2016</td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h3>BCG</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>BCG</th>
+                        <th>Producto 1</th>
+                        <th>Producto 2</th>
+                        <th>Producto 3</th>
+                        <th>Producto 4</th>
+                        <th>Producto 5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TCM</td>
+                        <td contenteditable="true">20,00%</td>
+                        <td contenteditable="true">20,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                        <td contenteditable="true">0,00%</td>
+                    </tr>
+                    <tr>
+                        <td>PRM</td>
+                        <td contenteditable="true">0,00</td>
+                        <td contenteditable="true">0,00</td>
+                        <td contenteditable="true">0,00</td>
+                        <td contenteditable="true">0,00</td>
+                        <td contenteditable="true">0,00</td>
+                    </tr>
+                    <tr>
+                        <td>% S/VTAS</td>
+                        <td contenteditable="true">8%</td>
+                        <td contenteditable="true">10%</td>
+                        <td contenteditable="true">27%</td>
+                        <td contenteditable="true">27%</td>
+                        <td contenteditable="true">0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h3>Niveles de Venta de los Competidores de Cada Producto</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Competidor</th>
+                        <th>Ventas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="bg-blue" rowspan="9">Producto 1</td>
+                        <td contenteditable="true">CP1-1</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-2</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-3</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-4</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-5</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-6</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-7</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-8</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP1-9</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-yellow" rowspan="9">Producto 2</td>
+                        <td contenteditable="true">CP2-1</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-2</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-3</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-4</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-5</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-6</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-7</td>
+                        <td contenteditable="true">0</td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">CP2-8</td>
+                        <td contenteditable="true">
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP2-9</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td class="bg-red" rowspan="9">Producto 3</td>
+                            <td contenteditable="true">CP3-1</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-2</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-3</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-4</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-5</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-6</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-7</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-8</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP3-9</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td class="bg-green" rowspan="9">Producto 4</td>
+                            <td contenteditable="true">CP4-1</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-2</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-3</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-4</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-5</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-6</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-7</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-8</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP4-9</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td class="bg-brown" rowspan="9">Producto 5</td>
+                            <td contenteditable="true">CP5-1</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-2</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-3</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-4</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-5</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-6</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-7</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-8</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">CP5-9</td>
+                            <td contenteditable="true">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button type="submit">Guardar y Continuar</button>
+        <button type="button" onclick="cancelar()">Cancelar</button>
+    </div>
+    
+    <script>
+        function cancelar() {
+            window.location.href = "{{ url_for('inicio') }}";
+        }
+    </script>
+    
+    {% endblock %}
+    

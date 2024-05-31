@@ -20,21 +20,15 @@
             <textarea id="vision" name="vision" rows="4" required style="width: 90%"></textarea>
           </div>
           <div class="valores">
-            <div>
-              <label for="valores1">Valor 1:</label>
-              <input type="text" id="valores1" name="valores1" required />
-              <label for="valores2">Valor 2:</label>
-              <input type="text" id="valores2" name="valores2" required />
-              <label for="valores3">Valor 3:</label>
-              <input type="text" id="valores3" name="valores3" required />
-            </div>
-            <div>
-              <label for="valores4">Valor 4:</label>
-              <input type="text" id="valores4" name="valores4" required />
-              <label for="valores5">Valor 5:</label>
-              <input type="text" id="valores5" name="valores5" required />
-              <label for="valores6">Valor 6:</label>
-              <input type="text" id="valores6" name="valores6" required />
+            <div id="valores-container" style="display: flex; flex-wrap: wrap;">
+              <div id="valor1-div" style="flex: 1 0 45%;">
+                <label for="valores1">Valor 1:</label>
+                <input type="text" id="valores1" name="valores1" />
+              </div>
+              <div class="botones-valores" style="flex: 1 0 45%;">
+                <button type="button" onclick="addValue()">Añadir Valor</button>
+                <button type="button" onclick="removeValue()">Quitar Valor</button>
+              </div>
             </div>
           </div>
         </div>
@@ -48,6 +42,37 @@
 </div>
 
 <script>
+  let valorCount = 1;
+
+  function addValue() {
+    if (valorCount < 6) {
+      valorCount++;
+      const container = document.getElementById('valores-container');
+      const div = document.createElement('div');
+      div.setAttribute('id', 'valor' + valorCount + '-div');
+      div.setAttribute('style', 'flex: 1 0 45%;');
+      const label = document.createElement('label');
+      label.setAttribute('for', 'valores' + valorCount);
+      label.textContent = 'Valor ' + valorCount + ':';
+      const input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.setAttribute('id', 'valores' + valorCount);
+      input.setAttribute('name', 'valores' + valorCount);
+      div.appendChild(label);
+      div.appendChild(input);
+      container.insertBefore(div, container.querySelector('.botones-valores'));
+    }
+  }
+
+  function removeValue() {
+    if (valorCount > 1) {
+      const container = document.getElementById('valores-container');
+      const lastDiv = document.getElementById('valor' + valorCount + '-div');
+      container.removeChild(lastDiv);
+      valorCount--;
+    }
+  }
+
   function cancelar() {
     window.location.href = "{{ url_for('inicio') }}";
   }

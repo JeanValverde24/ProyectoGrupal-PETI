@@ -8,7 +8,7 @@
 }
 
 .formulario {
-  width: 100%; 
+  width: 100%;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -17,11 +17,12 @@
   margin-top: 0;
 }
 
-.general,.valores{
-    width: 50%;
+.general, .valores {
+  width: 50%;
 }
-.container-form{
-    display: flex;
+
+.container-form {
+  display: flex;
 }
 
 .general label,
@@ -33,7 +34,7 @@
 .general input,
 .general textarea,
 .valores input {
-  width: 90%; 
+  width: 90%;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -43,15 +44,15 @@
 
 .valores {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .valores div {
-  width: calc(50% - 10px); 
+  width: calc(50% - 10px);
 }
 
 .valores input {
-  width: 100%; 
+  width: 100%;
 }
 
 .botones {
@@ -69,5 +70,26 @@
 }
 
 .botones button:hover {
+  background-color: #0056b3;
+}
+
+.botones-valores {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.botones-valores button {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botones-valores button:hover {
   background-color: #0056b3;
 }
