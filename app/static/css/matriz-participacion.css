@@ -1,0 +1,28 @@
+.contenido {
+    margin-left: 200px;
+}
+
+.ancho {
+    max-width: calc(100%);
+    display: flex;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+table tr:first-child th {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-bottom: 2px solid black;
+}
+
+#botones {
+    margin-top: 10px;
+}

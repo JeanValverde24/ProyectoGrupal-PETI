@@ -64,6 +64,10 @@ def crearunidadestrategica():
 def crearcadenavalor():
     return render_template('vistas/crear-cadena-valor.html')
 
+@app.route('/matriz-participacion')
+def matrizparticipacion():
+    return render_template('vistas/matriz-participacion.html')
+
 
 
 

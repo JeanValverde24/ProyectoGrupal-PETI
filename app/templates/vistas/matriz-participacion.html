@@ -1,0 +1,255 @@
+{% extends './base.html' %} {% block title %}Matriz de Participacion-BCG{% endblock %} {% block body
+%} {% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/matriz-participacion.css')}}" />
+
+<div class="contenido">
+    <div class="ancho" style="display: block;">
+        <div class="PrevisiónVentas" >
+            <table>
+                <tr>
+                    <th colspan="4">Previsión de Ventas</th>
+                </tr>
+                <tr>
+                    <th>PRODUCTOS</th>
+                    <th>VENTAS</th>
+                    <th>% S/ TOTAL</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Producto 1</td>
+                    <td><input type="number" id="venta1" name="venta1"></td>
+                    <td>20.00%</td>
+                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td>Producto 2</td>
+                    <td><input type="number" id="venta2" name="venta2"></td>
+                    <td>20.00%</td>
+                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td>Producto 3</td>
+                    <td><input type="number" id="venta3" name="venta3"></td>
+                    <td>20.00%</td>
+                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td>Producto 4</td>
+                    <td><input type="number" id="venta4" name="venta4"></td>
+                    <td>20.00%</td>
+                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td>Producto 5</td>
+                    <td><input type="number" id="venta5" name="venta5"></td>
+                    <td>20.00%</td>
+                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                </tr>
+            </table>
+
+            <table style="width: 36%">
+                <tr>
+                    <th>TOTAL</th>
+                    <td><input type="number" id="totalVenta" disabled></td>
+                    <th>100.00%</th>
+                    <td><button onclick="agregarFilaPrevisiónVentas()">Agregar Fila</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="TasasCrecimiento">
+            <table>
+                <tr>
+                    <th colspan="8">TASAS DE CRECIMIENTO DEL MERCADO (TCM)</th>
+                </tr>
+                <tr>
+                    <th colspan="2">PRODUCTOS</th>
+                    <th>Producto 1</th>
+                    <th>Producto 2</th>
+                    <th>Producto 3</th>
+                    <th>Producto 4</th>
+                    <th>Producto 5</th>
+                </tr>
+                <tr>
+                    <td>2019</td>
+                    <td>2020</td>
+                    <td><input type="number" id="producto1" name="venta1_2019_2020"></td>
+                    <td><input type="number" id="producto2" name="venta2_2019_2020"></td>
+                    <td><input type="number" id="producto3" name="venta3_2019_2020"></td>
+                    <td><input type="number" id="producto4" name="venta4_2019_2020"></td>
+                    <td><input type="number" id="producto5" name="venta5_2019_2020"></td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>2021</td>
+                    <td><input type="number" id="producto1" name="venta1_2020_2021"></td>
+                    <td><input type="number" id="producto2" name="venta2_2020_2021"></td>
+                    <td><input type="number" id="producto3" name="venta3_2020_2021"></td>
+                    <td><input type="number" id="producto4" name="venta4_2020_2021"></td>
+                    <td><input type="number" id="producto5" name="venta5_2020_2021"></td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>2022</td>
+                    <td><input type="number" id="producto1" name="venta1_2021_2022"></td>
+                    <td><input type="number" id="producto2" name="venta2_2021_2022"></td>
+                    <td><input type="number" id="producto3" name="venta3_2021_2022"></td>
+                    <td><input type="number" id="producto4" name="venta4_2021_2022"></td>
+                    <td><input type="number" id="producto5" name="venta5_2021_2022"></td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>2023</td>
+                    <td><input type="number" id="producto1" name="venta1_2022_2023"></td>
+                    <td><input type="number" id="producto2" name="venta2_2022_2023"></td>
+                    <td><input type="number" id="producto3" name="venta3_2022_2023"></td>
+                    <td><input type="number" id="producto4" name="venta4_2022_2023"></td>
+                    <td><input type="number" id="producto5" name="venta5_2022_2023"></td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>2024</td>
+                    <td><input type="number" id="producto1" name="venta1_2023_2024"></td>
+                    <td><input type="number" id="producto2" name="venta2_2023_2024"></td>
+                    <td><input type="number" id="producto3" name="venta3_2023_2024"></td>
+                    <td><input type="number" id="producto4" name="venta4_2023_2024"></td>
+                    <td><input type="number" id="producto5" name="venta5_2023_2024"></td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>BCG</th>
+                    <th>producto 1</th>
+                    <th>producto 2</th>
+                    <th>producto 3</th>
+                    <th>producto 4</th>
+                    <th>producto 5</th>
+                </tr>
+                <tr>
+                    <td>TCM</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                </tr>
+                <tr>
+                    <td>PRM</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                </tr>
+                <tr>
+                    <td>% S/VTAS</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                    <td>Halla el calculo</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="EvolucionDemandaGLobal">
+            <table>
+                <tr>
+                    <th colspan="7">EVOLUCIÓN DE LA DEMANDA GLOBAL SECTOR (en miles de soles)</th>
+                </tr>
+                <tr>
+                    <th>AÑOS</th>
+                    <th>Producto 1</th>
+                    <th>Producto 2</th>
+                    <th>Producto 3</th>
+                    <th>Producto 4</th>
+                    <th>Producto 5</th>
+                </tr>
+                <tr>
+                    <td>2019</td>
+                    <td><input type="number" id="producto1" name="demanda1_2019"></td>
+                    <td><input type="number" id="producto2" name="demanda2_2019"></td>
+                    <td><input type="number" id="producto3" name="demanda3_2019"></td>
+                    <td><input type="number" id="producto4" name="demanda4_2019"></td>
+                    <td><input type="number" id="producto5" name="demanda5_2019"></td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td><input type="number" id="producto1" name="demanda1_2020"></td>
+                    <td><input type="number" id="producto2" name="demanda2_2020"></td>
+                    <td><input type="number" id="producto3" name="demanda3_2020"></td>
+                    <td><input type="number" id="producto4" name="demanda4_2020"></td>
+                    <td><input type="number" id="producto5" name="demanda5_2020"></td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td><input type="number" id="producto1" name="demanda1_2021"></td>
+                    <td><input type="number" id="producto2" name="demanda2_2021"></td>
+                    <td><input type="number" id="producto3" name="demanda3_2021"></td>
+                    <td><input type="number" id="producto4" name="demanda4_2021"></td>
+                    <td><input type="number" id="producto5" name="demanda5_2021"></td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td><input type="number" id="producto1" name="demanda1_2022"></td>
+                    <td><input type="number" id="producto2" name="demanda2_2022"></td>
+                    <td><input type="number" id="producto3" name="demanda3_2022"></td>
+                    <td><input type="number" id="producto4" name="demanda4_2022"></td>
+                    <td><input type="number" id="producto5" name="demanda5_2022"></td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td><input type="number" id="producto1" name="demanda1_2023"></td>
+                    <td><input type="number" id="producto2" name="demanda2_2023"></td>
+                    <td><input type="number" id="producto3" name="demanda3_2023"></td>
+                    <td><input type="number" id="producto4" name="demanda4_2023"></td>
+                    <td><input type="number" id="producto5" name="demanda5_2023"></td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td><input type="number" id="producto1" name="demanda1_2024"></td>
+                    <td><input type="number" id="producto2" name="demanda2_2024"></td>
+                    <td><input type="number" id="producto3" name="demanda3_2024"></td>
+                    <td><input type="number" id="producto4" name="demanda4_2024"></td>
+                    <td><input type="number" id="producto5" name="demanda5_2024"></td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- <a href="{{ url_for('crearunidadestrategica') }}" style=""><button>Siguiente</button></a> -->
+
+
+    <script>
+        function agregarFilaPrevisiónVentas() {
+            const tabla = document.querySelector('table');
+            const fila = tabla.insertRow();
+
+            const celdaProducto = fila.insertCell();
+            const celdaVenta = fila.insertCell();
+            const celdaPorcentaje = fila.insertCell();
+            const celdaBoton = fila.insertCell();
+
+            celdaProducto.textContent = 'Producto N';
+            celdaVenta.innerHTML = '<input type="number" name="ventaN">';
+            celdaPorcentaje.textContent = '20.00%';
+            celdaBoton.innerHTML = '<button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button>';
+
+            calcularTotal();
+        }
+        function eliminarFilaPrevisiónVentas(boton) {
+            const fila = boton.parentNode.parentNode;
+            fila.parentNode.removeChild(fila);
+            calcularTotal();
+        }
+    </script>
+
+    {% endblock %}
+</div>
