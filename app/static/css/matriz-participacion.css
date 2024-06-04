@@ -8,21 +8,72 @@
 }
 
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     border-collapse: collapse;
 }
-th, td {
+
+th,
+td {
     padding: 5px;
     text-align: center;
 }
+
 table tr:first-child th {
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 5px;
-  border-bottom: 2px solid black;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-bottom: 2px solid black;
 }
 
 #botones {
     margin-top: 10px;
+}
+
+
+.PrevisiónVentas,
+.TasasCrecimiento,
+.EvolucionDemandaGLobal,
+.NivelesVentasCompetidores {
+    display: grid;
+    margin-bottom: 30px;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group input {
+    padding: 5px;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttons button {
+    background-color: #0077b6;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.buttons button:hover {
+    background-color: #005b8d;
+}
+
+.sidebar {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
 }

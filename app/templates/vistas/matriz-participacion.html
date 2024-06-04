@@ -4,6 +4,8 @@
 
 <div class="contenido">
     <div class="ancho" style="display: block;">
+        <a href="{{ url_for('crearcadenavalor') }}" style=""><button>Atras</button></a>
+
         <div class="PrevisiónVentas" >
             <table>
                 <tr>
@@ -13,46 +15,47 @@
                     <th>PRODUCTOS</th>
                     <th>VENTAS</th>
                     <th>% S/ TOTAL</th>
-                    <th></th>
+                    <!-- <th></th> -->
                 </tr>
                 <tr>
                     <td>Producto 1</td>
                     <td><input type="number" id="venta1" name="venta1"></td>
-                    <td>20.00%</td>
-                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                    <td>Halla el calculo</td>
+                    <!-- <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td> -->
                 </tr>
                 <tr>
                     <td>Producto 2</td>
                     <td><input type="number" id="venta2" name="venta2"></td>
-                    <td>20.00%</td>
-                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                    <td>Halla el calculo</td>
+                    <!-- <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td> -->
                 </tr>
                 <tr>
                     <td>Producto 3</td>
                     <td><input type="number" id="venta3" name="venta3"></td>
-                    <td>20.00%</td>
-                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                    <td>Halla el calculo</td>
+                    <!-- <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td> -->
                 </tr>
                 <tr>
                     <td>Producto 4</td>
                     <td><input type="number" id="venta4" name="venta4"></td>
-                    <td>20.00%</td>
-                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                    <td>Halla el calculo</td>
+                    <!-- <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td> -->
                 </tr>
                 <tr>
                     <td>Producto 5</td>
                     <td><input type="number" id="venta5" name="venta5"></td>
-                    <td>20.00%</td>
-                    <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td>
+                    <td>Halla el calculo</td>
+                    <!-- <td><button onclick="eliminarFilaPrevisiónVentas(this)">Eliminar</button></td> -->
                 </tr>
             </table>
 
-            <table style="width: 36%">
+            <table>
                 <tr>
                     <th>TOTAL</th>
+                    <td></td>
                     <td><input type="number" id="totalVenta" disabled></td>
-                    <th>100.00%</th>
-                    <td><button onclick="agregarFilaPrevisiónVentas()">Agregar Fila</button></td>
+                    <th>Halla el calculo</th>
+                    <!-- <td><button onclick="agregarFilaPrevisiónVentas()">Agregar Fila</button></td> -->
                 </tr>
             </table>
         </div>
@@ -217,15 +220,143 @@
             </table>
         </div>
 
+        <div class="NivelesVentasCompetidores">
+            <table>
+                <tr>
+                    <th colspan="10">NIVELES DE VENTA DE LOS COMPETIDORES DE CADA PRODUCTO</th>
+                </tr>
+                <tr>
+                    
+                    <th colspan="2">Producto 1</th>
+                    <th colspan="2">Producto 2</th>
+                    <th colspan="2">Producto 3</th>
+                    <th colspan="2">Producto 4</th>
+                    <th colspan="2">Producto 5</th>
+                </tr>
+                <tr>
+                    <td>Empresa</td>
+                    <td>Halla el calculo</td>
+                    <td>Empresa</td>
+                    <td>Halla el calculo</td>
+                    <td>Empresa</td>
+                    <td>Halla el calculo</td>
+                    <td>Empresa</td>
+                    <td>Halla el calculo</td>
+                    <td>Empresa</td>
+                    <td>Halla el calculo</td>
+                </tr>
+                <tr>
+                    <td>Competidor</td>
+                    <td>Ventas</td>
+                    <td>Competidor</td>
+                    <td>Ventas</td>
+                    <td>Competidor</td>
+                    <td>Ventas</td>
+                    <td>Competidor</td>
+                    <td>Ventas</td>
+                    <td>Competidor</td>
+                    <td>Ventas</td>
+                </tr>
+                <tr>
+                    <td>CP1-1</td>
+                    <td><input type="number" id="CP1-1" name="CP1-1"></td>
+                    <td>CP2-1</td>
+                    <td><input type="number" id="CP2-1" name="CP2-1"></td>
+                    <td>CP3-1</td>
+                    <td><input type="number" id="CP3-1" name="CP3-1"></td>
+                    <td>CP4-1</td>
+                    <td><input type="number" id="CP4-1" name="CP4-1"></td>
+                    <td>CP5-1</td>
+                    <td><input type="number" id="CP5-1" name="CP2-1"></td>
+                </tr>
+                <tr>
+                    <td>CP1-2</td>
+                    <td><input type="number" id="CP1-2" name="CP1-2"></td>
+                    <td>CP2-2</td>
+                    <td><input type="number" id="CP2-2" name="CP2-2"></td>
+                    <td>CP3-2</td>
+                    <td><input type="number" id="CP3-2" name="CP3-2"></td>
+                    <td>CP4-2</td>
+                    <td><input type="number" id="CP4-2" name="CP4-2"></td>
+                    <td>CP5-2</td>
+                    <td><input type="number" id="CP5-2" name="CP2-2"></td>
+                </tr>
+                <tr>
+                    <td>CP1-3</td>
+                    <td><input type="number" id="CP1-3" name="CP1-3"></td>
+                    <td>CP2-3</td>
+                    <td><input type="number" id="CP2-3" name="CP2-3"></td>
+                    <td>CP3-3</td>
+                    <td><input type="number" id="CP3-3" name="CP3-3"></td>
+                    <td>CP4-3</td>
+                    <td><input type="number" id="CP4-3" name="CP4-3"></td>
+                    <td>CP5-3</td>
+                    <td><input type="number" id="CP5-3" name="CP2-3"></td>
+                </tr>
+                <tr>
+                    <td>CP1-4</td>
+                    <td><input type="number" id="CP1-4" name="CP1-4"></td>
+                    <td>CP2-4</td>
+                    <td><input type="number" id="CP2-4" name="CP2-4"></td>
+                    <td>CP3-4</td>
+                    <td><input type="number" id="CP3-4" name="CP3-4"></td>
+                    <td>CP4-4</td>
+                    <td><input type="number" id="CP4-4" name="CP4-4"></td>
+                    <td>CP5-4</td>
+                    <td><input type="number" id="CP5-4" name="CP2-4"></td>
+                </tr>
+            </table>
 
+            <table>
+                <tr>
+                    <td>Mayor</td>
+                    <td><td><td></td></td><td><input type="number" id="MAYOR_CP1" name="MAYOR_CP1" disabled></td></td>
+                    <td>Mayor</td>
+                    <td><td><td></td></td><td><input type="number" id="MAYOR_CP2" name="MAYOR_CP2" disabled></td></td>
+                    <td>Mayor</td>
+                    <td><td><td></td></td><td><input type="number" id="MAYOR_CP3" name="MAYOR_CP3" disabled></td></td>
+                    <td>Mayor</td>
+                    <td><td><td></td></td><td><input type="number" id="MAYOR_CP4" name="MAYOR_CP4" disabled></td></td>
+                    <td>Mayor</td>
+                    <td><td><td></td></td><td><input type="number" id="MAYOR_CP5" name="MAYOR_CP5"></td></td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <div class="container">
+            <div class="form-group">
+                <div style="display: ruby-text; margin-bottom: 10px;">
+                    <label for="fortalezas">FORTALEZAS</label>
+                    <div class="buttons">
+                        <button>Agregar</button>
+                    </div>
+                </div>
+
+                <div id="fortalezas">
+                    <input type="text" placeholder="F1:">
+                    <input type="text" placeholder="F2:">
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="display: ruby-text; margin-bottom: 10px;">
+                    <label for="fortalezas">DEBILIDADES</label>
+                    <div class="buttons">
+                        <button>Agregar</button>
+                    </div>
+                </div>
+                <div id="debilidades">
+                    <input type="text" placeholder="D1:">
+                    <input type="text" placeholder="D2:">
+                </div>
+            </div>
+            <div class="buttons">
+                <button style="margin-right: 10px;">Boton(Guardar y continuar)</button>
+                <a href="{{ url_for('crearunidadestrategica') }}"><button>CANCELAR</button></a>
+            </div>
+        </div>
     </div>
-
-
-
-
-
-    <!-- <a href="{{ url_for('crearunidadestrategica') }}" style=""><button>Siguiente</button></a> -->
-
 
     <script>
         function agregarFilaPrevisiónVentas() {
