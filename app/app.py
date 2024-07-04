@@ -68,6 +68,10 @@ def crearcadenavalor():
 def crearanalisisproductosservicios():
     return render_template('vistas/crear-analisis-productos-servicios.html')
 
+@app.route('/pest')
+def pest():
+    return render_template('vistas/PEST.html')
+
 
 
 @app.route('/contacto/<nombre>/<int:edad>')

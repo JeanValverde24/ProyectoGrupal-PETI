@@ -1,0 +1,8 @@
+.contenido {
+    margin-left: 200px;
+}
+
+.ancho {
+    max-width: calc(100%);
+    display: flex;
+}

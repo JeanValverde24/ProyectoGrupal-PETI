@@ -1,0 +1,422 @@
+{% extends './base.html' %}
+{% block title %}PEST{% endblock %}
+
+{% block body%}
+
+{% include './vistas/menu.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crear-analisis-productos-servicios.css')}}" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    input[type="radio"] {
+        margin: 0;
+    }
+</style>
+
+
+
+
+<div class="contenido">
+    <div class="ancho" style="display: block !important;">
+        <h2>Previsión de Ventas</h2>
+        <table id="pestTable">
+            <tr>
+                <th>Autodiagnóstico Entorno Global P.E.S.T.</th>
+                <th>En total desacuerdo (0)</th>
+                <th>No está de acuerdo (1)</th>
+                <th>Está de acuerdo (2)</th>
+                <th>Está bastante de acuerdo (3)</th>
+                <th>En total acuerdo (4)</th>
+            </tr>
+            <tr>
+                <td>1. Los cambios en la composición étnica de los consumidores de nuestro mercado está teniendo
+                    un notable impacto.</td>
+                <td><input type="radio" name="q1" value="0"></td>
+                <td><input type="radio" name="q1" value="25"></td>
+                <td><input type="radio" name="q1" value="25"></td>
+                <td><input type="radio" name="q1" value="25"></td>
+                <td><input type="radio" name="q1" value="25"></td>
+            </tr>
+            <tr>
+                <td>2. El envejecimiento de la población tiene un importante impacto en la demanda.</td>
+                <td><input type="radio" name="q2" value="0"></td>
+                <td><input type="radio" name="q2" value="25"></td>
+                <td><input type="radio" name="q2" value="25"></td>
+                <td><input type="radio" name="q2" value="25"></td>
+                <td><input type="radio" name="q2" value="25"></td>
+            </tr>
+            <tr>
+                <td>3. Los nuevos estilos de vida y tendencias originan cambios en la oferta de nuestro sector.
+                </td>
+                <td><input type="radio" name="q3" value="0"></td>
+                <td><input type="radio" name="q3" value="25"></td>
+                <td><input type="radio" name="q3" value="25"></td>
+                <td><input type="radio" name="q3" value="25"></td>
+                <td><input type="radio" name="q3" value="25"></td>
+            </tr>
+            <tr>
+                <td>4. El envejecimiento de la población tiene un importante impacto en la oferta del sector
+                    donde operamos.</td>
+                <td><input type="radio" name="q4" value="0"></td>
+                <td><input type="radio" name="q4" value="25"></td>
+                <td><input type="radio" name="q4" value="25"></td>
+                <td><input type="radio" name="q4" value="25"></td>
+                <td><input type="radio" name="q4" value="25"></td>
+            </tr>
+            <tr>
+                <td>5. Las variaciones en el nivel de riqueza de la población impactan considerablemente en la
+                    demanda de los productos/servicios del sector donde operamos.</td>
+                <td><input type="radio" name="q5" value="0"></td>
+                <td><input type="radio" name="q5" value="25"></td>
+                <td><input type="radio" name="q5" value="25"></td>
+                <td><input type="radio" name="q5" value="25"></td>
+                <td><input type="radio" name="q5" value="25"></td>
+            </tr>
+            <tr>
+                <td>6. La legislación fiscal afecta muy considerablemente a la economía de las empresas del
+                    sector donde operamos.</td>
+                <td><input type="radio" name="q6" value="0"></td>
+                <td><input type="radio" name="q6" value="25"></td>
+                <td><input type="radio" name="q6" value="25"></td>
+                <td><input type="radio" name="q6" value="25"></td>
+                <td><input type="radio" name="q6" value="25"></td>
+            </tr>
+            <tr>
+                <td>7. La legislación laboral afecta muy considerablemente a la operativa del sector donde
+                    actuamos.</td>
+                <td><input type="radio" name="q7" value="0"></td>
+                <td><input type="radio" name="q7" value="25"></td>
+                <td><input type="radio" name="q7" value="25"></td>
+                <td><input type="radio" name="q7" value="25"></td>
+                <td><input type="radio" name="q7" value="25"></td>
+            </tr>
+            <tr>
+                <td>8. Las subvenciones otorgadas por las Administraciones Públicas son claves en el desarrollo
+                    competitivo del mercado donde operamos.</td>
+                <td><input type="radio" name="q8" value="0"></td>
+                <td><input type="radio" name="q8" value="25"></td>
+                <td><input type="radio" name="q8" value="25"></td>
+                <td><input type="radio" name="q8" value="25"></td>
+                <td><input type="radio" name="q8" value="25"></td>
+            </tr>
+            <tr>
+                <td>9. El impacto que tiene la legislación de protección al consumidor, en la manera de producir
+                    bienes y/o servicios es muy importante.</td>
+                <td><input type="radio" name="q9" value="0"></td>
+                <td><input type="radio" name="q9" value="25"></td>
+                <td><input type="radio" name="q9" value="25"></td>
+                <td><input type="radio" name="q9" value="25"></td>
+                <td><input type="radio" name="q9" value="25"></td>
+            </tr>
+            <tr>
+                <td>10. La normativa autonómica tiene un impacto considerable en el funcionamiento del sector
+                    donde actuamos.</td>
+                <td><input type="radio" name="q10" value="0"></td>
+                <td><input type="radio" name="q10" value="25"></td>
+                <td><input type="radio" name="q10" value="25"></td>
+                <td><input type="radio" name="q10" value="25"></td>
+                <td><input type="radio" name="q10" value="25"></td>
+            </tr>
+            <tr>
+                <td>11. Las expectativas de crecimiento económico generales afectan crucialmente al mercado
+                    donde operamos.</td>
+                <td><input type="radio" name="q11" value="0"></td>
+                <td><input type="radio" name="q11" value="25"></td>
+                <td><input type="radio" name="q11" value="25"></td>
+                <td><input type="radio" name="q11" value="25"></td>
+                <td><input type="radio" name="q11" value="25"></td>
+            </tr>
+            <tr>
+                <td>12. La política de tipos de interés es fundamental en el desarrollo financiero del sector
+                    donde trabaja nuestra empresa.</td>
+                <td><input type="radio" name="q12" value="0"></td>
+                <td><input type="radio" name="q12" value="25"></td>
+                <td><input type="radio" name="q12" value="25"></td>
+                <td><input type="radio" name="q12" value="25"></td>
+                <td><input type="radio" name="q12" value="25"></td>
+            </tr>
+            <tr>
+                <td>13. La globalización permite a nuestra industria gozar de importantes oportunidades en
+                    nuevos mercados.</td>
+                <td><input type="radio" name="q13" value="0"></td>
+                <td><input type="radio" name="q13" value="25"></td>
+                <td><input type="radio" name="q13" value="25"></td>
+                <td><input type="radio" name="q13" value="25"></td>
+                <td><input type="radio" name="q13" value="25"></td>
+            </tr>
+            <tr>
+                <td>14. La situación del empleo es fundamental para el desarrollo económico de nuestra empresa y
+                    nuestro sector.</td>
+                <td><input type="radio" name="q14" value="0"></td>
+                <td><input type="radio" name="q14" value="25"></td>
+                <td><input type="radio" name="q14" value="25"></td>
+                <td><input type="radio" name="q14" value="25"></td>
+                <td><input type="radio" name="q14" value="25"></td>
+            </tr>
+            <tr>
+                <td>15. Las expectativas del ciclo económico de nuestro sector impactan en la situación
+                    económica de sus empresas.</td>
+                <td><input type="radio" name="q15" value="0"> </td>
+                <td><input type="radio" name="q15" value="25"></td>
+                <td><input type="radio" name="q15" value="25"></td>
+                <td><input type="radio" name="q15" value="25"></td>
+                <td><input type="radio" name="q15" value="25"></td>
+            </tr>
+            <tr>
+                <td>16. Las Administraciones Públicas están incentivando el esfuerzo tecnológico de las empresas
+                    de nuestro sector.</td>
+                <td><input type="radio" name="q16" value="0"></td>
+                <td><input type="radio" name="q16" value="25"></td>
+                <td><input type="radio" name="q16" value="25"></td>
+                <td><input type="radio" name="q16" value="25"></td>
+                <td><input type="radio" name="q16" value="25"></td>
+            </tr>
+            <tr>
+                <td>17. Internet, el comercio electrónico, el wireless y otras NTIC están impactando en la
+                    demanda de nuestros productos/servicios y en los de la competencia.</td>
+                <td><input type="radio" name="q17" value="0"></td>
+                <td><input type="radio" name="q17" value="25"></td>
+                <td><input type="radio" name="q17" value="25"></td>
+                <td><input type="radio" name="q17" value="25"></td>
+                <td><input type="radio" name="q17" value="25"></td>
+            </tr>
+            <tr>
+                <td>18. El empleo de NTIC´s es generalizado en el sector donde trabajamos.</td>
+                <td><input type="radio" name="q18" value="0"></td>
+                <td><input type="radio" name="q18" value="25"></td>
+                <td><input type="radio" name="q18" value="25"></td>
+                <td><input type="radio" name="q18" value="25"></td>
+                <td><input type="radio" name="q18" value="25"></td>
+            </tr>
+            <tr>
+                <td>19. En nuestro sector, es de gran importancia ser pionero o referente en el empleo de
+                    aplicaciones tecnológicas.</td>
+                <td><input type="radio" name="q19" value="0"></td>
+                <td><input type="radio" name="q19" value="25"></td>
+                <td><input type="radio" name="q19" value="25"></td>
+                <td><input type="radio" name="q19" value="25"></td>
+                <td><input type="radio" name="q19" value="25"></td>
+            </tr>
+            <tr>
+                <td>20. En el sector donde operamos, para ser competitivos, es condición "sine qua non" innovar
+                    constantemente.</td>
+                <td><input type="radio" name="q20" value="0"></td>
+                <td><input type="radio" name="q20" value="25"></td>
+                <td><input type="radio" name="q20" value="25"></td>
+                <td><input type="radio" name="q20" value="25"></td>
+                <td><input type="radio" name="q20" value="25"></td>
+            </tr>
+            <tr>
+                <td>21. La legislación medioambiental afecta al desarrollo de nuestro sector.</td>
+                <td><input type="radio" name="q21" value="0"></td>
+                <td><input type="radio" name="q21" value="25"></td>
+                <td><input type="radio" name="q21" value="25"></td>
+                <td><input type="radio" name="q21" value="25"></td>
+                <td><input type="radio" name="q21" value="25"></td>
+            </tr>
+            <tr>
+                <td>22. Los clientes de nuestro mercado exigen que seamos socialmente responsables, en el plano
+                    medioambiental.</td>
+                <td><input type="radio" name="q22" value="0"></td>
+                <td><input type="radio" name="q22" value="25"></td>
+                <td><input type="radio" name="q22" value="25"></td>
+                <td><input type="radio" name="q22" value="25"></td>
+                <td><input type="radio" name="q22" value="25"></td>
+            </tr>
+            <tr>
+                <td>23. En nuestro sector, las políticas medioambientales son una fuente de ventajas
+                    competitivas.</td>
+                <td><input type="radio" name="q23" value="0"></td>
+                <td><input type="radio" name="q23" value="25"></td>
+                <td><input type="radio" name="q23" value="25"></td>
+                <td><input type="radio" name="q23" value="25"></td>
+                <td><input type="radio" name="q23" value="25"></td>
+            </tr>
+            <tr>
+                <td>24. La creciente preocupación social por el medio ambiente impacta notablemente en la
+                    demanda de productos/servicios ofertados en nuestro mercado.</td>
+                <td><input type="radio" name="q24" value="0"></td>
+                <td><input type="radio" name="q24" value="25"></td>
+                <td><input type="radio" name="q24" value="25"></td>
+                <td><input type="radio" name="q24" value="25"></td>
+                <td><input type="radio" name="q24" value="25"></td>
+            </tr>
+            <tr>
+                <td>25. El factor ecológico es una fuente de diferenciación clara en el sector donde opera
+                    nuestra empresa.</td>
+                <td><input type="radio" name="q25" value="0"></td>
+                <td><input type="radio" name="q25" value="25"></td>
+                <td><input type="radio" name="q25" value="25"></td>
+                <td><input type="radio" name="q25" value="25"></td>
+                <td><input type="radio" name="q25" value="25"></td>
+            </tr>
+        </table>
+        <h2>Distribution of Factors in PEST Analysis</h2>
+        <canvas id="pestChart" width="400" height="200"></canvas>
+        <div id="impactMessage">
+            <!-- Aquí se mostrará el mensaje de impacto -->
+        </div>
+        <script>
+            // Función para calcular el puntaje total
+            function calcularPuntajeTotal() {
+                let puntajeTotal = 0;
+
+                // Obtener todas las respuestas de la tabla
+                const respuestas = document.querySelectorAll('#pestTable input[type="radio"]:checked');
+
+                // Sumar los valores de las respuestas
+                respuestas.forEach(respuesta => {
+                    puntajeTotal += parseInt(respuesta.value); // Convertir el valor a entero y sumarlo
+                });
+
+                return puntajeTotal;
+            }
+
+            // Función para normalizar el puntaje a una escala de 0-100
+            function normalizarPuntaje(puntaje, maxValor) {
+                // maxValor es el valor máximo que podría alcanzar el puntaje total (25 puntos por pregunta * número de preguntas)
+                const puntajeNormalizado = (puntaje / maxValor) * 100;
+                return puntajeNormalizado;
+            }
+
+            // Función para analizar la tabla y contar las respuestas por factor
+            function parseTable() {
+                const table = document.getElementById("pestTable");
+                const rows = table.rows;
+                const factors = {
+                    "FACTORES SOCIALES Y DEMOGRÁFICOS": [1, 2, 3, 4],
+                    "FACTORES MEDIOAMBIENTALES": [21, 22, 23, 24, 25],
+                    "FACTORES POLÍTICOS": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+                    "FACTORES ECONÓMICOS": [5, 11, 12, 14, 15],
+                    "FACTORES TECNOLÓGICOS": [3, 17, 18, 19, 20]
+                };
+                const counts = {
+                    "FACTORES SOCIALES Y DEMOGRÁFICOS": 0,
+                    "FACTORES MEDIOAMBIENTALES": 0,
+                    "FACTORES POLÍTICOS": 0,
+                    "FACTORES ECONÓMICOS": 0,
+                    "FACTORES TECNOLÓGICOS": 0
+                };
+
+                for (const factor in factors) {
+                    factors[factor].forEach(index => {
+                        const cells = rows[index].cells;
+                        for (let i = 1; i < cells.length; i++) {
+                            const radio = cells[i].querySelector('input[type="radio"]');
+                            if (radio && radio.checked) {
+                                counts[factor]++;
+                            }
+                        }
+                    });
+                }
+
+                return counts;
+            }
+
+            // Función para crear el gráfico de barras y mostrar el puntaje total sin normalización
+            function createChart(data) {
+                var ctx = document.getElementById('pestChart').getContext('2d');
+                var pestChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(data),
+                        datasets: [{
+                            label: `Puntaje Total (sin normalización): ${calcularPuntajeTotal()}`, // Agregar etiqueta con el puntaje total
+                            data: Object.values(data),
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                // Función para actualizar el gráfico cuando se cambian los datos de la tabla
+                function updateChart() {
+                    pestChart.data.datasets[0].data = Object.values(parseTable());
+                    pestChart.data.datasets[0].label = `Valor: ${calcularPuntajeTotal()}`;
+                    pestChart.update();
+                }
+
+                // Escuchar cambios en la tabla y actualizar el gráfico
+                document.getElementById('pestTable').addEventListener('change', function () {
+                    updateChart();
+
+                    // Calcular y mostrar el puntaje total sin normalización
+                    const puntajeTotal = calcularPuntajeTotal();
+                    console.log(`Puntaje Total (sin normalización): ${puntajeTotal}`);
+                });
+
+                // Mostrar el gráfico inicial
+                updateChart();
+
+                return pestChart;
+            }
+
+            // Función para actualizar el mensaje de impacto según los datos
+            function updateImpactMessage(data) {
+                const messageDiv = document.getElementById('impactMessage');
+                const impactMessages = {
+                    "FACTORES SOCIALES Y DEMOGRÁFICOS": "Mensaje para Factores Sociales y Demográficos",
+                    "FACTORES MEDIOAMBIENTALES": "Mensaje para Factores Medioambientales",
+                    "FACTORES POLÍTICOS": "Mensaje para Factores Políticos",
+                    "FACTORES ECONÓMICOS": "Mensaje para Factores Económicos",
+                    "FACTORES TECNOLÓGICOS": "Mensaje para Factores Tecnológicos"
+                };
+                messageDiv.innerHTML = '';
+                for (const factor in data) {
+                    if (data[factor] === 0) {
+                        const p = document.createElement('p');
+                        p.textContent = impactMessages[factor];
+                        messageDiv.appendChild(p);
+                    }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                let pestChart = createChart(parseTable());
+            });
+        </script>
+
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
