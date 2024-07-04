@@ -90,7 +90,45 @@ def query_string():
     print(request.args.get('param1'))
     print(request.args.get('param2'))
     return "ok"
+@app.route('/guardar', methods=['POST'])
+def guardar_matriz_came():
+    if request.method == 'POST':
+        # Obtener datos del formulario
+        acciones = {
+            'C': [
+                request.form['accion1'],
+                request.form['accion2'],
+                request.form['accion3']
+            ],
+            'A': [
+                request.form['accion5'],
+                request.form['accion6'],
+                request.form['accion7']
+            ],
+            'M': [
+                request.form['accion9'],
+                request.form['accion10'],
+                request.form['accion11']
+            ],
+            'E': [
+                request.form['accion13'],
+                request.form['accion14'],
+                request.form['accion15']
+            ]
+        }
 
+        # Aquí puedes procesar o guardar los datos como prefieras
+        # Por ejemplo, imprimir en consola para verificar:
+        print("Acciones C:")
+        print(acciones['C'])
+        print("Acciones A:")
+        print(acciones['A'])
+        print("Acciones M:")
+        print(acciones['M'])
+        print("Acciones E:")
+        print(acciones['E'])
+        
+       
 def pagina_no_encontrada(error):
     # return render_template('404.html'), 404
     return redirect(url_for('index'))

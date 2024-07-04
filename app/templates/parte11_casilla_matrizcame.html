@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz CAME</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .matriz-came {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #333;
+        }
+        .matriz-came th, .matriz-came td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        .matriz-came th {
+            background-color: #008cba;
+            color: white;
+        }
+        .matriz-came .section-header {
+            background-color: #00b3e6;
+            color: white;
+        }
+        .matriz-came .label {
+            background-color: #006080;
+            color: white;
+            width: 50px;
+        }
+        .matriz-came .number {
+            width: 30px;
+        }
+        .instructions {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+            font-style: italic;
+        }
+        .fillable textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            resize: none;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" action="/guardar">
+        <table class="matriz-came">
+            <thead>
+                <tr>
+                    <th colspan="3">11. MATRIZ CAME</th>
+                </tr>
+                <tr>
+                    <td colspan="3" class="instructions">Reflexione y anote acciones a llevar a cabo teniendo en cuenta que estas acciones deben favorecer la ejecución exitosa de la estrategia general identificada.</td>
+                </tr>
+                <tr>
+                    <th>Acciones</th>
+                    <th colspan="2">Estrategias</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4" class="label">C</td>
+                    <td class="section-header" colspan="2">Corregir las debilidades</td>
+                </tr>
+                <tr>
+                    <td class="number">1</td>
+                    <td class="fillable"><textarea name="accion1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">2</td>
+                    <td class="fillable"><textarea name="accion2"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">3</td>
+                    <td class="fillable"><textarea name="accion3"></textarea></td>
+                </tr>
+                <tr>
+                    <td rowspan="4" class="label">A</td>
+                    <td class="section-header" colspan="2">Afrontar las amenazas</td>
+                </tr>
+                <tr>
+                    <td class="number">5</td>
+                    <td class="fillable"><textarea name="accion5"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">6</td>
+                    <td class="fillable"><textarea name="accion6"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">7</td>
+                    <td class="fillable"><textarea name="accion7"></textarea></td>
+                </tr>
+                <tr>
+                    <td rowspan="4" class="label">M</td>
+                    <td class="section-header" colspan="2">Mantener las fortalezas</td>
+                </tr>
+                <tr>
+                    <td class="number">9</td>
+                    <td class="fillable"><textarea name="accion9"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">10</td>
+                    <td class="fillable"><textarea name="accion10"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">11</td>
+                    <td class="fillable"><textarea name="accion11"></textarea></td>
+                </tr>
+                <tr>
+                    <td rowspan="4" class="label">E</td>
+                    <td class="section-header" colspan="2">Explotar las oportunidades</td>
+                </tr>
+                <tr>
+                    <td class="number">13</td>
+                    <td class="fillable"><textarea name="accion13"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">14</td>
+                    <td class="fillable"><textarea name="accion14"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="number">15</td>
+                    <td class="fillable"><textarea name="accion15"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="submit-button">
+            <button type="submit">Guardar</button>
+        </div>
+    </form>
+</body>
+</html>
